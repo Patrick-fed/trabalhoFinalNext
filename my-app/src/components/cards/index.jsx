@@ -1,10 +1,11 @@
 import React from 'react'
+import styles from card.module.css
 
 export default function Card({id, title, price, description, category, image}) {
   return (
     <div className={styles.card}>
       <img
-        src={imagem}
+        src={image}
         alt="Imagem do produto"
         width={200}
         height={200}

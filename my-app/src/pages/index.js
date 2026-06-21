@@ -16,11 +16,22 @@ const geistMono = Geist_Mono({
 });
 
 export default function Home() {
-const [produto, setProduto] = useState([]);
+const [produtos, setProdutos] = useState([]);
+const [loading, setLoading] = useState(true);
+
+useEffect(() => {
+  fetch("https://fakestoreapi.com/products")
+    .then((res) => res.json())
+    .then((data) => {
+      setProdutos(data);
+      setLoading(false);
+    })
+    .catch((err) => console.error("Erro ao buscar produto: ", err))
+},[]);
 
   return (
     <>
-      <div className={styles.container}>
+      <div className={'${styles.container}'}>
       {produtos.map((produto) => (
         <Card
           key={produto.id}
@@ -28,11 +39,12 @@ const [produto, setProduto] = useState([]);
           title={produto.title}
           description={produto.description}
           price={produto.price}
-          imagem={produto.imagem}
+          image={produto.image}
+          category={produto.category}
         />
       ))}
 
-      <Link href={`/criaProduto`}>
+      <Link href={`/criarProdutos`}>
         <button>Criar produto</button>
       </Link>
       
