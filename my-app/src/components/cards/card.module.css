@@ -1,0 +1,90 @@
+.card {
+  width: 260px;
+  background-color: #ffffff;
+
+  border: 2px solid #e5e7eb; /* borda */
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+
+  border-color: #111827; /* muda cor da borda no hover */
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.image {
+  height: 220px;
+  object-fit: cover;
+
+  border-bottom: 2px solid #e5e7eb; /* borda separando imagem */
+}
+
+.content {
+  padding: 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #222;
+
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 8px;
+}
+
+.description {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.4;
+}
+
+.price {
+  font-size: 22px;
+  font-weight: bold;
+  color: #0a7d32;
+
+  border: 1px solid #d1fae5;
+  background-color: #ecfdf5;
+
+  padding: 8px;
+  border-radius: 8px;
+
+  text-align: center;
+}
+
+.button {
+  background-color: #111827;
+  color: white;
+
+  border: 2px solid #111827;
+  border-radius: 8px;
+
+  padding: 12px;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  background-color: white;
+  color: #111827;
+}
