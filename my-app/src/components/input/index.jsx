@@ -1,4 +1,4 @@
-import styles from '@/styles/input.module.css';
+import styles from './input.module.css';
 
 export default function Input({ label, type = "text", value, onChange }) {
   return (

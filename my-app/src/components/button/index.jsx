@@ -1,4 +1,4 @@
-import styles from '@/styles/botao.module.css';
+import styles from './botao.module.css';
 
 export default function Botao({ children, onClick, type = "button", className }) {
   // Se uma classe externa for passada, usa ela, senão usa a padrão do módulo

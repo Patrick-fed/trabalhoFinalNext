@@ -1,55 +1,57 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
-import styles from "@/styles/Home.module.css";
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Card from "@/components/cards";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import styles from "@/styles/Home.module.css";
 
 export default function Home() {
-const [produtos, setProdutos] = useState([]);
-const [loading, setLoading] = useState(true);
+  const [produtos, setProdutos] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-useEffect(() => {
-  fetch("https://fakestoreapi.com/products")
-    .then((res) => res.json())
-    .then((data) => {
-      setProdutos(data);
-      setLoading(false);
-    })
-    .catch((err) => console.error("Erro ao buscar produto: ", err))
-},[]);
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((data) => {
+        setProdutos(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Erro ao buscar produto: ", err);
+        setLoading(false);
+      });
+  }, []);
 
   return (
     <>
-      <div className={'${styles.container}'}>
-      {produtos.map((produto) => (
-        <Card
-          key={produto.id}
-          id={produto.id}
-          title={produto.title}
-          description={produto.description}
-          price={produto.price}
-          image={produto.image}
-          category={produto.category}
-        />
-      ))}
+      <Head>
+        <title>Trabalho final Next</title>
+      </Head>
 
-      <Link href={`/criarProdutos`}>
-        <button>Criar produto</button>
-      </Link>
       
+      <div className={styles.container}>
+        
+        
+        {loading ? (
+          <h2>Carregando produtos... ⏳</h2>
+        ) : (
+          produtos.map((produto) => (
+            <Card
+              key={produto.id}
+              id={produto.id}
+              title={produto.title}
+              description={produto.description}
+              price={produto.price}
+              image={produto.image}
+              category={produto.category}
+            />
+          ))
+        )}
 
+        <br />
+        
+        <Link href={`/criarProdutos`}>
+          <button style={{ marginTop: '20px', padding: '10px' }}>Criar novo produto</button>
+        </Link>
       </div>
     </>
   );

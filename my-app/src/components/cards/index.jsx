@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import styles from './card.module.css';
+import Botao from '../button';
 
 
 export default function Card({id, title, price, description, category, image}) {
@@ -8,7 +9,7 @@ export default function Card({id, title, price, description, category, image}) {
     <div className={styles.card}>
       <img
         src={image}
-        alt="Imagem do produto"
+        alt={'Imagem do produto: ${title}'}
         width={200}
         height={200}
         className={styles.image}
@@ -23,10 +24,11 @@ export default function Card({id, title, price, description, category, image}) {
 
         <p className={styles.category}>{category}</p>
 
-        <p className={styles.image}>{image}</p>
 
-        <Link href={`/produto/${id}`}>
-          <button className={styles.button}>Comprar</button>
+        <Link href={`/produtos/${id}`}>
+          <Botao className={styles.button}>
+            Ver detalhes
+          </Botao>
         </Link>
       </div>
     </div>
