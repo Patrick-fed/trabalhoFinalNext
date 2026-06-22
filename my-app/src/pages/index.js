@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import { useState, useEffect} from "react";
 import Link from "next/link";
+import Card from "@/components/cards";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

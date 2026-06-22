@@ -1,0 +1,20 @@
+.header {
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.nav {
+  display: flex;
+  gap: 15px;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #0070f3;
+  font-weight: 500;
+}
+
+.navLink:hover {
+  text-decoration: underline;
+}

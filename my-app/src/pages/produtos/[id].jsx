@@ -22,7 +22,7 @@ console.log(produto);
 
 return (
         <div>
-            {produtos ?
+            {produto ?
             (
             <div>
                 <h1>{produto.title}</h1>
